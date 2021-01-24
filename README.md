@@ -149,7 +149,7 @@ $ iris status | jq .SyncInfo.catching_up
 > Вбиваем скопированный текст в левое поле. В правом поле ищем `catching_up`, смотрим значение.
 
 #### Если `catching_up = false`
-Идем в сканер https://www.irisplorer.io/
+Идем в сканер https://bifrost.irisplorer.io/
 Вводим адрес кошелька, смотрим баланс. Если больше нуля - продолжаем. Если 0 - ждем
 
 
