@@ -154,7 +154,7 @@ $ iris status | jq .SyncInfo.catching_up
 
 Так же можно проверить баланс командой
 ```bash
-iris query bank balances <address>
+$ iris query bank balances <address>
 ```
 
 
