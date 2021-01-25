@@ -157,7 +157,36 @@ $ iris status | jq .SyncInfo.catching_up
 $ iris query bank balances <address>
 ```
 
-
+#### Если баланс > 0 создаем валидатора
+Это одна команда
 ```bash
-Продолжение будет, когда автор получит тестовые токены на кошелек.
+$ iris tx staking create-validator \
+    --pubkey=$(iris tendermint show-validator) \
+    --moniker=<your-name>-<pgp-id> \
+    --amount=10bif \
+    --commission-rate=0.1 \
+    --commission-max-rate=0.2 \
+    --commission-max-change-rate=0.01 \
+    --gas=200000 \
+    --fees=0.1bif \
+    --chain-id=bifrost-2 \
+    --from=mykey \
+    --min-self-delegation=1
 ```
+На зпрос пароля вводим пароль от кошелька (который сохраняли в самом начале шага 8)
+
+На запрос подтверждения транзакции вводим `y` и жмем `Enter`
+
+Ждем исполнения транзакции
+
+Проверяем
+```bash
+$ iris status | jq .ValidatorInfo.VotingPower
+```
+> Если выводит много символов, копируем вывод в буфер. Идем по ссылке https://jsonformatter.org/
+> Вбиваем скопированный текст в левое поле. В правом поле в самом низу ищем `VotingPower`, смотрим значение.
+
+Значение `VotingPower` должно быть больше 0, что бы вы могли выполнять задания.
+
+
+
