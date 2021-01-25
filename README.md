@@ -163,6 +163,7 @@ $ iris query bank balances <address>
 $ iris tx staking create-validator \
     --pubkey=$(iris tendermint show-validator) \
     --moniker=<your-name>-<pgp-id> \
+    --identity=<pgp-id> \
     --amount=10bif \
     --commission-rate=0.1 \
     --commission-max-rate=0.2 \
